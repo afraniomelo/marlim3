@@ -4,9 +4,7 @@
 </h1><br>
 
 `Marlim3` is a 1D multiphase flow simulator developed by Petrobras.
- 
-The types of simulations offered by `Marlim3` include:
- 
+  
 ## Core capabilities (steady-state and transient)
 
 - **Production wells**
