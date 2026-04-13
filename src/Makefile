@@ -47,10 +47,10 @@ OUTPUT = Marlim3
 # Alvo principal
 all: release
 
-debug: gera_versao create_obj_dir $(OBJS)
+debug: create_obj_dir $(OBJS)
 	$(CXX) $(OBJS) -o $(OUTPUT) $(LDFLAGS)
 
-release: gera_versao create_obj_dir $(OBJS)
+release: create_obj_dir $(OBJS)
 	@echo ">>> Compilando em modo RELEASE (C++ otimizado, Fortran debug)"
 	$(CXX) $(OBJS) -o $(OUTPUT) $(LDFLAGS)
 	@command -v upx >/dev/null 2>&1 && \
@@ -83,10 +83,6 @@ $(OBJDIR)/MarlimComposicional.o: $(OBJDIR)/VLECalculations.o $(OBJDIR)/PvtSimCTM
 # Diretório de objetos
 create_obj_dir:
 	mkdir -p $(OBJDIR)
-
-# Versão
-gera_versao:
-	bash ./gera_versao.sh
 
 # Limpeza
 clean:

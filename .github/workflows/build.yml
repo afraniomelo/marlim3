@@ -31,12 +31,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gfortran g++ make
 
-      - name: Generate versao.h
-        working-directory: src
-        run: |
-          bash ./gera_versao.sh
-          cp ../versao.h ./versao.h
-
       - name: Build executable
         working-directory: src
         run: make all
@@ -89,15 +83,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # git describe em gera_versao.sh precisa do histórico completo
-
-      - name: Gerar versao.h
-        # Roda no host Ubuntu (git e bash disponíveis).
-        # O script escreve em ../versao.h; copiamos para src/.
-        working-directory: src
-        run: |
-          bash ./gera_versao.sh
-          cp ../versao.h ./versao.h
+          fetch-depth: 0
 
       - name: Build (release) dentro do container manylinux2014
         # docker run monta o workspace e compila com GCC 10 (devtoolset-10).
@@ -148,12 +134,6 @@ jobs:
             mingw-w64-x86_64-gcc
             mingw-w64-x86_64-gcc-fortran
             make
-
-      - name: Gerar versao.h
-        working-directory: src
-        run: |
-          bash ./gera_versao.sh
-          cp ../versao.h ./versao.h
 
       - name: Build (release)
         working-directory: src

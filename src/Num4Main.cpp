@@ -259,7 +259,7 @@ detCI CI;
 detCC CC;
 
 int nthrdMatriz=1;
-string versao="Marlim - 3.2.28";
+string versao="Marlim - 3.3.1";
 
 time_t nowGlobIni;
 tm *ltmGlobIni;
@@ -14733,8 +14733,7 @@ void RedeInj(SProd* malha,Rede& arqRede, int narq, string nomeArquivoLog, tipoVa
  */
 static void showUsage(string name) {
 	cerr << "Usage: " << name << " <opcoes(s)> " << endl;
-	void printInfo();
-	printInfo();
+	cerr << "Marlim transiente versao " << versao << endl;
 	cerr << "Opcoes:\n" << "\t-h,--help\t\tExibir esta mensagem de execucao\n" << "\t-i,--input ARQUIVO\tRedefinir o arquivo de entrada\n"
 			<< "\t-o,--output ARQUIVO\tRedefinir o arquivo LOG de resultado\n" << "\t-p,--path CAMINHO\tRedefinir o caminho de outros arquivos de entrada (PVTSIM)\n"
 			<< "\t-d,--dir PASTA\t\tRedefinir a pasta de saida de resultados\n" << "\t-v,--validate <JSON>  \tValidar a estrutura/formato JSON da entrada\n"
