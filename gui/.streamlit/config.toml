@@ -1,0 +1,5 @@
+[browser]
+gatherUsageStats = false
+
+[server]
+# Force English locale for number formatting (dot as decimal separator)
